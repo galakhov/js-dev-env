@@ -15,8 +15,9 @@ app.use(require('webpack-dev-middleware')(compiler, {
   publicPath: config.output.publicPath
 }));
 
+// routes handled by the server
 app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, '../src/index.html'));
+  res.sendFile(path.join(__dirname, '../src/index.html'));  // entry point
 });
 
 app.get('/users', function(req, res) {
