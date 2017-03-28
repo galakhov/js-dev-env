@@ -11,6 +11,17 @@ This is a generic JavaScript development environment that I build from scratch i
 This will run the automated build process, start up a webserver, and open the application in your default browser. When doing development with this kit, this command will continue watching files all your files. Every time you hit save the code is rebuilt, linting runs, and tests run automatically. Note: The -s flag is optional. It enables silent mode which suppresses unnecessary messages during the build.
 6. Having issues? See below.
 
+## Notes on usage
+- 'npm start' (comes from the cross platform package called 'npm-run-all') will start the whole environment with a single call in a verbose mode (use 'npm start -s' to start the environment in a silent mode without any messages).
+- Look up for this line (and corresponding .js file) in package.json for the entry point and other declarations: "open:src": "babel-node buildScripts/srcServer.js".
+- To compile JS as ES6 code, run scripts either with 'babel-node' (replace all 'node' entries with 'babel-node' in the ./package.json if needed) OR install 'babel-core' and 'babel-cli' packages globally (check the global version with 'babel -V' or local one with this command: './node_modules/.bin/babel --version').
+- To run additional script(s) before or after another one, use either 'pre-' or 'post-' prefixes (such as 'prestart' or 'poststart'), which will start these routines automatically before or after the actual script call.
+- To start online instance using 'localtunnel' on some subdomain (like subd.localtunnel.me), run following command: "lt --port 3000 --subdomain subd". You will probably need to install it globally: "sudo npm install -g localtunnel".
+- Use "npm share" ("npm-run-all --parallel open:src localtunnel") to start a shared environment with a randomly generated subdomain.
+- For usage of babel-cli look: http://babeljs.io/docs/usage/cli/
+- To update packages, use 'ncu -u' and then 'sudo npm install' in your project directory. Install it on your machine by: "sudo npm install -g npm-check-updates". See this page for more information: https://www.npmjs.com/package/npm-check-updates
+
+
 ## Having Issues? Try these things first:
 1. Run `npm install` - If you forget to do this, you'll see this: `babel-node: command not found`.
 2. Make sure you're running the latest version of Node. Or, use [Node 6.9.1](https://nodejs.org/en/download/releases/) if you're having issues on Windows. Node 7 has issues on some Windows machines.
@@ -36,7 +47,7 @@ This will run the automated build process, start up a webserver, and open the ap
 |eventsource-polyfill|Polyfill to support hot reloading in IE|
 |expect|Assertion library for use with Mocha|
 |express|Serves development and production builds|
-|extract-text-webpack-plugin| Extracts CSS into separate file for production build | 
+|extract-text-webpack-plugin| Extracts CSS into separate file for production build |
 |file-loader| Adds file loading support to Webpack |
 |jsdom|In-memory DOM for testing|
 |mocha| JavaScript testing library |

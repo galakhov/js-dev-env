@@ -3,21 +3,14 @@
   "version": "1.0.0",
   "description": "JavaScript development environment",
   "scripts": {
-    "//": [
-      "to compile es6: run scripts with 'babel-node' OR install babel-core and babel-cli globally (babel -V)",
-      "'prestart' starts automatically before 'start'" ],
     "prestart": "babel-node buildScripts/startMessage.js",
-    "//": "./node_modules/.bin/babel --version",
-    "//": "npm-run-all (cross platform): starting the whole environment with a single line below:",
-    "//": "npm start -s to start without any messages",
     "start": "npm-run-all --parallel security-check open:src lint:watch test:watch start-mockapi",
-    "open:src": "babel-node buildScripts/srcServer.js", "//": "look here for an entry point and other declarations",
+    "open:src": "babel-node buildScripts/srcServer.js",
     "lint": "esw webpack.config.* src buildScripts --color",
     "lint:watch": "npm run lint -- --watch",
     "security-check": "nsp check",
-    "localtunnel": "lt --port 3000", "//": "sudo npm install -g localtunnel",
-    "//": "e.g. to run subd.localtunnel.me instance: lt --port 3000 --subdomain subd",
-    "share": "npm-run-all --parallel open:src localtunnel", "//": "to start a shared environment",
+    "localtunnel": "lt --port 3000",
+    "share": "npm-run-all --parallel open:src localtunnel",
     "test": "mocha --reporter progress buildScripts/testSetup.js \"src/**/*.test.js\"",
     "test:watch": "npm run test -- --watch",
     "generate-mock-data": "babel-node buildScripts/generateMockData",
@@ -27,11 +20,10 @@
     "prebuild": "npm-run-all clean-dist test lint",
     "build": "babel-node buildScripts/build.js",
     "postbuild": "babel-node buildScripts/distServer.js",
-    "deploy": "surge ./dist",
-    "//": "usage of babel-cli: http://babeljs.io/docs/usage/cli/"
+    "deploy": "surge ./dist"
   },
-  "author": "D. G.",
-  "license": "",
+  "author": "Cory House, D. G.",
+  "license": "MIT",
   "dependencies": {
     "whatwg-fetch": "2.0.3"
   },
@@ -69,7 +61,6 @@
     "webpack": "2.3.2",
     "webpack-dev-middleware": "1.10.1",
     "webpack-hot-middleware": "2.17.1",
-    "webpack-md5-hash": "0.0.5",
-    "//": "# to update packages, use 'ncu -u': sudo npm install -g npm-check-updates"
+    "webpack-md5-hash": "0.0.5"
   }
 }
