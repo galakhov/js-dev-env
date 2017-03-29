@@ -18,7 +18,7 @@ This will run the automated build process, start up a webserver, and open the ap
 - For usage of babel-cli, look into their docs: http://babeljs.io/docs/usage/cli/
 - To run additional script(s) before or after another one, use either `pre-` or `post-` prefixes (such as `prestart` or `poststart`), which will start these routines automatically before or after the actual script call.
 - To start online instance using `localtunnel` on some subdomain (like subd.localtunnel.me), run following command: `lt --port 3000 --subdomain subd`. You will probably need to install it globally: `sudo npm install -g localtunnel`.
-- Use "npm share" ("npm-run-all --parallel open:src localtunnel") to start a shared environment with a randomly generated subdomain.
+- Type `npm share` (`"npm-run-all --parallel open:src localtunnel"`) to start a shared environment with a randomly generated subdomain.
 - To **update packages**, use `ncu -u` to list new versions of all packages and then type `sudo npm install` in your project directory. Install it on your machine globally if needed by calling: `sudo npm install -g npm-check-updates`. See this page for more information: https://www.npmjs.com/package/npm-check-updates
 - You will probably need to install the node security package globally, too: `npm install -g nsp`.
 
