@@ -15,11 +15,11 @@ This will run the automated build process, start up a webserver, and open the ap
 - 'npm start' (comes from the cross platform package called 'npm-run-all') will start the whole environment with a single call in a verbose mode (use 'npm start -s' to start the environment in a silent mode without any messages).
 - Look up for this line (and corresponding .js file) in package.json for the entry point and other declarations: "open:src": "babel-node buildScripts/srcServer.js".
 - To compile JS as ES6 code, run scripts either with 'babel-node' (replace all 'node' entries with 'babel-node' in the ./package.json if needed) OR install 'babel-core' and 'babel-cli' packages globally (check the global version with 'babel -V' or local one with this command: './node_modules/.bin/babel --version').
+- For usage of babel-cli, look into their docs: http://babeljs.io/docs/usage/cli/
 - To run additional script(s) before or after another one, use either 'pre-' or 'post-' prefixes (such as 'prestart' or 'poststart'), which will start these routines automatically before or after the actual script call.
 - To start online instance using 'localtunnel' on some subdomain (like subd.localtunnel.me), run following command: "lt --port 3000 --subdomain subd". You will probably need to install it globally: "sudo npm install -g localtunnel".
 - Use "npm share" ("npm-run-all --parallel open:src localtunnel") to start a shared environment with a randomly generated subdomain.
-- For usage of babel-cli look: http://babeljs.io/docs/usage/cli/
-- To update packages, use 'ncu -u' and then 'sudo npm install' in your project directory. Install it on your machine by: "sudo npm install -g npm-check-updates". See this page for more information: https://www.npmjs.com/package/npm-check-updates
+- To **update packages**, use 'ncu -u' and then 'sudo npm install' in your project directory. Install it on your machine by: "sudo npm install -g npm-check-updates". See this page for more information: https://www.npmjs.com/package/npm-check-updates
 
 
 ## Having Issues? Try these things first:
